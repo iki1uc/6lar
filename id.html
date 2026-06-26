@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>ID SLOT</title>
+
+<style>
+  body {
+    background:#000;
+    color:#0f0;
+    font-family: monospace;
+    padding:20px;
+  }
+  h1 { color:#0f0; }
+  .row { margin:8px 0; }
+  .tag { display:inline-block; width:70px; }
+  .gate { color:#0ff; }
+  .id   { color:#ff0; }
+  .tmp  { color:#f0f; }
+</style>
+</head>
+
+<body>
+
+<h1>id.html // Gate → ID → TMP</h1>
+
+<!-- on3 -->
+<div class="row">
+  <span class="tag">on3</span>
+  <span class="gate">GATE-α</span> ·
+  <span class="id">ID-01-ACT</span> ·
+  <span class="tmp">TMP-1</span>
+</div>
+
+<!-- 3te -->
+<div class="row">
+  <span class="tag">3te</span>
+  <span class="gate">GATE-β</span> ·
+  <span class="id">ID-02-EDGE</span> ·
+  <span class="tmp">TMP-2</span>
+</div>
+
+<!-- 9lu -->
+<div class="row">
+  <span class="tag">9lu</span>
+  <span class="gate">GATE-γ</span> ·
+  <span class="id">ID-03-LOOP</span> ·
+  <span class="tmp">TMP-3</span>
+</div>
+
+<!-- 6lar (MASTER) -->
+<div class="row">
+  <span class="tag">6lar</span>
+  <span class="gate">GATE-Ω</span> ·
+  <span class="id">ID-04-MSTR</span> ·
+  <span class="tmp">TMP-4</span>
+</div>
+
+<script>
+// Optional: Konsolen-Ausgabe für Debug
+document.querySelectorAll('.row').forEach(r => {
+  console.log(r.textContent.trim());
+});
+</script>
+
+</body>
+</html>
 
