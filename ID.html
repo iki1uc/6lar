@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ID SLOT</title>
+<style>
+  body { font-family: monospace; background:#000; color:#0f0; }
+  .id-row { margin:6px 0; }
+  .tag { display:inline-block; min-width:80px; }
+</style>
+</head>
+<body>
+
+<h1>id.html // ID-GATE-TMP</h1>
+
+<div class="id-row">
+  <span class="tag">on3</span>
+  <span>GATE-α</span> ·
+  <span>ID-01-ACT</span> ·
+  <span>TMP-1</span>
+</div>
+
+<div class="id-row">
+  <span class="tag">3te</span>
+  <span>GATE-β</span> ·
+  <span>ID-02-EDGE</span> ·
+  <span>TMP-2</span>
+</div>
+
+<div class="id-row">
+  <span class="tag">9lu</span>
+  <span>GATE-γ</span> ·
+  <span>ID-03-LOOP</span> ·
+  <span>TMP-3</span>
+</div>
+
+<div class="id-row">
+  <span class="tag">6lar</span>
+  <span>GATE-Ω</span> ·
+  <span>ID-04-MSTR</span> ·
+  <span>TMP-4</span>
+</div>
+
+<script>
+// falls du später auslesen willst:
+document.querySelectorAll('.id-row').forEach(row => {
+  console.log(row.textContent.trim());
+});
+</script>
+
+</body>
+</html>
 
