@@ -1,1 +1,16 @@
+TOP10 {
+  pos: 1
+  id: RESPO_01
+  name: "Beispiel"
+  score: 120
+}
+
+TOP10 {
+  pos: 2
+  id: RESPO_07
+  name: "Beispiel"
+  score: 118
+}
+
+...
 
