@@ -1,13 +1,19 @@
-<div id="on3-panel">
+<div id="on3-grid">
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
 
-  <div class="on3-cell" id="on3-A"></div>
-  <div class="on3-cell" id="on3-B"></div>
-  <div class="on3-cell" id="on3-C"></div>
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
 
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
+  <div class="on3-cell"></div>
 </div>
 
 <style>
-  #on3-panel {
+  #on3-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
@@ -23,14 +29,4 @@
     box-shadow: 0 0 12px #0af3;
     transition: 0.25s;
   }
-
-  .on3-cell:hover {
-    background: #181818;
-    box-shadow: 0 0 18px #0af6;
-  }
-
-  /* on3‑Modusfarben */
-  #on3-A { border-left: 6px solid #0af; }
-  #on3-B { border-left: 6px solid #0f8; }
-  #on3-C { border-left: 6px solid #f08; }
 </style>
