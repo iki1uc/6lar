@@ -1,17 +1,3 @@
-<div id="on3-grid">
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-  <div class="on3-cell"></div>
-</div>
-
 <style>
   #on3-grid {
     display: grid;
@@ -24,9 +10,50 @@
 
   .on3-cell {
     height: 120px;
-    background: #111;
+    background: #0b0b0b;
     border-radius: 10px;
     box-shadow: 0 0 12px #0af3;
     transition: 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .on3-cell::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, #0af2, transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .on3-cell:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 22px #0af9;
+  }
+
+  .on3-cell:hover::after {
+    opacity: 1;
+  }
+
+  .on3-A { border-left: 6px solid #0af; }
+  .on3-B { border-left: 6px solid #0f8; }
+  .on3-C { border-left: 6px solid #f08; }
+
+  .on3-label {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-size: 14px;
+    color: #9ddfff;
+    letter-spacing: 0.5px;
+  }
+
+  .on3-value {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 20px;
+    color: #e6e6e6;
   }
 </style>
