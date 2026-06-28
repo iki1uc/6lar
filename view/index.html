@@ -1,59 +1,130 @@
-<style>
-  #on3-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    width: 100%;
-    max-width: 680px;
-    margin: 40px auto;
-  }
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>on3 – Final</title>
 
-  .on3-cell {
-    height: 120px;
-    background: #0b0b0b;
-    border-radius: 10px;
-    box-shadow: 0 0 12px #0af3;
-    transition: 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e6e6e6;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      margin: 0;
+    }
 
-  .on3-cell::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, #0af2, transparent 60%);
-    opacity: 0;
-    transition: 0.3s;
-  }
+    /* on3 GRID */
+    #on3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 680px;
+      margin: 40px auto;
+    }
 
-  .on3-cell:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 22px #0af9;
-  }
+    .on3-cell {
+      height: 120px;
+      background: #0b0b0b;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #0af3;
+      transition: 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .on3-cell:hover::after {
-    opacity: 1;
-  }
+    .on3-cell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, #0af2, transparent 60%);
+      opacity: 0;
+      transition: 0.3s;
+    }
 
-  .on3-A { border-left: 6px solid #0af; }
-  .on3-B { border-left: 6px solid #0f8; }
-  .on3-C { border-left: 6px solid #f08; }
+    .on3-cell:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 22px #0af9;
+    }
 
-  .on3-label {
-    position: absolute;
-    bottom: 10px;
-    left: 12px;
-    font-size: 14px;
-    color: #9ddfff;
-    letter-spacing: 0.5px;
-  }
+    .on3-cell:hover::after {
+      opacity: 1;
+    }
 
-  .on3-value {
-    position: absolute;
-    top: 16px;
-    left: 12px;
-    font-size: 20px;
-    color: #e6e6e6;
-  }
-</style>
+    /* Modus-Farben */
+    .on3-A { border-left: 6px solid #0af; }
+    .on3-B { border-left: 6px solid #0f8; }
+    .on3-C { border-left: 6px solid #f08; }
+
+    /* Text */
+    .on3-label {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      font-size: 14px;
+      color: #9ddfff;
+      letter-spacing: 0.5px;
+    }
+
+    .on3-value {
+      position: absolute;
+      top: 16px;
+      left: 12px;
+      font-size: 20px;
+      color: #e6e6e6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align:center; color:#6cf;">on3 – Final</h1>
+
+  <!-- on3 FINAL GRID -->
+  <div id="on3-grid">
+
+    <div class="on3-cell on3-A">
+      <div class="on3-value" id="on3-mode">on3</div>
+      <div class="on3-label">Modus</div>
+    </div>
+
+    <div class="on3-cell on3-B">
+      <div class="on3-value" id="on3-score">–</div>
+      <div class="on3-label">Score</div>
+    </div>
+
+    <div class="on3-cell on3-C">
+      <div class="on3-value" id="on3-top">–</div>
+      <div class="on3-label">Top‑Item</div>
+    </div>
+
+    <div class="on3-cell"></div>
+    <div class="on3-cell"></div>
+    <div class="on3-cell"></div>
+
+    <div class="on3-cell"></div>
+    <div class="on3-cell"></div>
+    <div class="on3-cell"></div>
+
+  </div>
+
+  <script>
+    async function on3Init() {
+      try {
+        const respo = await fetch('../cyx/respo.json').then(r => r.json()).catch(() => ({}));
+        const listText = await fetch('../10/list.mol').then(r => r.text()).catch(() => "");
+        const firstLine = listText.split('\n')[0] || "–";
+
+        document.getElementById('on3-mode').innerText  = respo.mode  || "on3";
+        document.getElementById('on3-score').innerText = respo.score || "–";
+        document.getElementById('on3-top').innerText   = firstLine;
+      } catch (e) {
+        console.log("on3 fallback", e);
+      }
+    }
+
+    on3Init();
+  </script>
+
+</body>
+</html>
