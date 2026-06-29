@@ -1,1 +1,8 @@
+ITEM_MATRIX = {
+  "X": "6lar/ui.json",
+  "Y": "x4/engine.json",
+  "Z": "scan/beam.json",
+  "axis": 360,
+  "state": "active"
+}
 
