@@ -1,37 +1,118 @@
-<script>
-class SixLar {
-  constructor() {
-    this.state = ["A", "B", "C"];   // drei Werte
-    this.index = 0;                 // Start
-  }
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>6lar – Navigation</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e6e6e6;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 34px;
+      margin-bottom: 25px;
+      color: #6cf;
+      letter-spacing: 1px;
+    }
+    .linkbox {
+      background: #1a1a1a;
+      padding: 18px;
+      margin: 12px 0;
+      border-radius: 8px;
+      width: 280px;
+      transition: 0.2s;
+    }
+    .linkbox:hover {
+      background: #262626;
+    }
+    a {
+      color: #9ddfff;
+      text-decoration: none;
+      font-size: 21px;
+      letter-spacing: 0.5px;
+    }
+    a:hover {
+      color: #ffffff;
+    }
 
-  current() {
-    return this.state[this.index];
-  }
+    /* 6lar Engine UI */
+    #output {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #6cf;
+      width: 280px;
+      background: #111;
+      border-radius: 8px;
+      font-size: 20px;
+      text-align: center;
+    }
 
-  next() {
-    this.index = (this.index + 1) % this.state.length;
-    return this.current();
-  }
+    button {
+      background: #1a1a1a;
+      color: #9ddfff;
+      border: 1px solid #6cf;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #262626;
+      color: #fff;
+    }
+  </style>
+</head>
 
-  prev() {
-    this.index = (this.index - 1 + this.state.length) % this.state.length;
-    return this.current();
-  }
+<body>
 
-  random() {
-    this.index = Math.floor(Math.random() * this.state.length);
-    return this.current();
-  }
-}
+  <h1>6lar – Navigation</h1>
 
-const engine = new SixLar();
+  <div class="linkbox">
+    <a href="../id/ID.alt.html">ALT‑ID öffnen</a>
+  </div>
 
-function show(text) {
-  document.getElementById("output").textContent = text;
-}
+  <div class="linkbox">
+    <a href="../id/neu/ID.neu.html">NEU‑ID öffnen</a>
+  </div>
 
-document.getElementById("btn1").onclick = () => show(engine.current());
-document.getElementById("btn2").onclick = () => show(engine.next());
-document.getElementById("btn3").onclick = () => show(engine.prev());
-</script>
+  <div class="linkbox">
+    <a href="../10/top10.html">TOP‑10 anzeigen</a>
+  </div>
+
+  <!-- 6lar Engine Output -->
+  <div id="output">6lar bereit…</div>
+
+  <!-- 3-Schalter -->
+  <button id="btn1">ZEIGE</button>
+  <button id="btn2">→ WEITER</button>
+  <button id="btn3">← ZURÜCK</button>
+
+  <script>
+    class SixLar {
+      constructor() {
+        this.state = ["A", "B", "C"];
+        this.index = 0;
+      }
+      current() { return this.state[this.index]; }
+      next() { this.index = (this.index + 1) % this.state.length; return this.current(); }
+      prev() { this.index = (this.index - 1 + this.state.length) % this.state.length; return this.current(); }
+    }
+
+    const engine = new SixLar();
+
+    function show(text) {
+      document.getElementById("output").textContent = text;
+    }
+
+    document.getElementById("btn1").onclick = () => show(engine.current());
+    document.getElementById("btn2").onclick = () => show(engine.next());
+    document.getElementById("btn3").onclick = () => show(engine.prev());
+  </script>
+
+</body>
+</html>
